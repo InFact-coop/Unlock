@@ -53,35 +53,45 @@ model =
     }
 
 
+botStyle : String
+botStyle =
+    "bg-white fl br4 pr2 mw5 w5 mb3 pa3"
+
+
+userStyle : String
+userStyle =
+    "bg-blue white fr br4 pr2 mw5 w5 mb3 pa3 w-100"
+
+
 state0 =
     State
         0
-        (Line "Hi! How are you?" "tl")
-        [ { text = "Good", newState = 1, sideClass = "tr" }
-        , { text = "Not good", newState = 2, sideClass = "tr" }
+        (Line "Hi! How are you?" botStyle)
+        [ { text = "Good", newState = 1, sideClass = userStyle }
+        , { text = "Not good", newState = 2, sideClass = userStyle }
         ]
 
 
 state1 =
     State
         1
-        (Line "Good that you are good." "tl")
-        [ { text = "How are you", newState = 3, sideClass = "tr" }
-        , { text = "Actually, I am not good", newState = 2, sideClass = "tr" }
+        (Line "Good that you are good." botStyle)
+        [ { text = "How are you", newState = 3, sideClass = userStyle }
+        , { text = "Actually, I am not good", newState = 2, sideClass = userStyle }
         ]
 
 
 state2 =
     State
         2
-        (Line "Bad that you are not good. Start again?" "tl")
-        [ { text = "Yeah", newState = 0, sideClass = "tr" }
-        , { text = "No, how are you?", newState = 3, sideClass = "tr" }
+        (Line "Bad that you are not good. Start again?" botStyle)
+        [ { text = "Yeah", newState = 0, sideClass = userStyle }
+        , { text = "No, how are you?", newState = 3, sideClass = userStyle }
         ]
 
 
 state3 =
     State
         3
-        (Line "I'm great thanks!" "tl")
-        [ { text = "Cool. Lets start again", newState = 0, sideClass = "tr" } ]
+        (Line "I'm great thanks!" botStyle)
+        [ { text = "Cool. Lets start again", newState = 0, sideClass = userStyle } ]
