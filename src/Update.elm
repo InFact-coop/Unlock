@@ -3,8 +3,10 @@
 
 module Update exposing (..)
 
+import Delay
 import Models exposing (..)
 import Task
+import Time
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -25,7 +27,7 @@ update msg model =
             ( { model
                 | conversation = model.conversation ++ [ Line option.text option.sideClass ]
               }
-            , Task.perform ChangeState (Task.succeed option.newState)
+            , Delay.after 500 Time.millisecond (ChangeState option.newState)
             )
 
         ChangeState stateId ->
@@ -49,7 +51,7 @@ update msg model =
             )
 
 
-stateToChangeTo : Int -> Model -> Maybe State
+stateToChangeTo : String -> Model -> Maybe State
 stateToChangeTo newStateId model =
     model.states
         |> List.filter (\state -> state.id == newStateId)

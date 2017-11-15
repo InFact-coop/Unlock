@@ -1,8 +1,10 @@
 module Main exposing (..)
 
+import Delay
 import Html exposing (..)
 import Models exposing (..)
 import Task
+import Time
 import Update exposing (..)
 import View exposing (..)
 
@@ -19,4 +21,4 @@ main =
 
 init : ( Model, Cmd Msg )
 init =
-    ( model, Task.perform ChangeState (Task.succeed model.currentStateNumber) )
+    ( model, Delay.after 500 Time.millisecond (ChangeState model.currentStateNumber) )
