@@ -15,7 +15,7 @@ update msg model =
 
         SendText ->
             ( { model
-                | conversation = model.conversation ++ [ { text = model.input, sideClass = "tr" } ]
+                | conversation = model.conversation ++ [ Line model.input "tr" ]
                 , input = ""
               }
             , Cmd.none
@@ -23,7 +23,7 @@ update msg model =
 
         SendOption option ->
             ( { model
-                | conversation = model.conversation ++ [ { text = option.text, sideClass = option.sideClass } ]
+                | conversation = model.conversation ++ [ Line option.text option.sideClass ]
               }
             , Task.perform ChangeState (Task.succeed option.newState)
             )
