@@ -4,6 +4,7 @@
 module Update exposing (..)
 
 import Models exposing (..)
+import Task
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -14,7 +15,7 @@ update msg model =
 
         SendText ->
             ( { model
-                | conversation = model.conversation ++ [ model.input ]
+                | conversation = model.conversation ++ [ { text = model.input, sideClass = "tr" } ]
                 , input = ""
               }
             , Cmd.none
@@ -22,8 +23,34 @@ update msg model =
 
         SendOption option ->
             ( { model
-                | conversation = model.conversation ++ [ option ]
-                , input = ""
+                | conversation = model.conversation ++ [ { text = option.text, sideClass = option.sideClass } ]
+              }
+            , Task.perform ChangeState (Task.succeed option.newState)
+            )
+
+        ChangeState stateId ->
+            let
+                newState =
+                    case stateToChangeTo stateId model of
+                        Just state ->
+                            state
+
+                        Nothing ->
+                            model.defState
+            in
+            ( { model
+                | input = ""
+                , conversation = model.conversation ++ [ newState.response ]
+                , options = newState.options
+                , currentStateNumber = newState.id
+                , previousStateNumber = model.currentStateNumber
               }
             , Cmd.none
             )
+
+
+stateToChangeTo : Int -> Model -> Maybe State
+stateToChangeTo newStateId model =
+    model.states
+        |> List.filter (\state -> state.id == newStateId)
+        |> List.head

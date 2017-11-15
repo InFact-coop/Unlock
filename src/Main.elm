@@ -2,6 +2,7 @@ module Main exposing (..)
 
 import Html exposing (..)
 import Models exposing (..)
+import Task
 import Update exposing (..)
 import View exposing (..)
 
@@ -18,4 +19,4 @@ main =
 
 init : ( Model, Cmd Msg )
 init =
-    ( model, Cmd.none )
+    ( model, Task.perform ChangeState (Task.succeed model.currentStateNumber) )

@@ -14,7 +14,7 @@ view : Model -> Html Msg
 view model =
     div [ class "" ]
         [ div []
-            [ ul [ class "" ]
+            [ ul [ class "list" ]
                 (model.conversation
                     |> List.map eachLine
                 )
@@ -48,12 +48,12 @@ subscriptions model =
     Sub.none
 
 
-eachLine : String -> Html Msg
+eachLine : { text : String, sideClass : String } -> Html Msg
 eachLine line =
-    li [ class "" ]
-        [ text line ]
+    li [ class ("pa2 " ++ line.sideClass) ]
+        [ text line.text ]
 
 
-eachOption : String -> Html Msg
+eachOption : Option -> Html Msg
 eachOption option =
-    button [ onClick (SendOption option) ] [ text option ]
+    button [ class "", onClick (SendOption option) ] [ text option.text ]
