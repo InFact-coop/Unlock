@@ -29,3 +29,7 @@
 .w480{
   width: 480px;
 }
+
+.unlock-image{
+  background-image: url('./assets/infoHub.png');
+}
