@@ -15,14 +15,18 @@
 <body>
   <div class="fixed bottom-0 right-0 ma4">
   <div class="w480 margin-0-auto">
-  <div class= "center pa4 measure" id="elm-landing-pad"></div>
-  <button class="blue-background bn white br-100 w3 h3 fr shadow-1-ns grow mr4 mt3" id="show-elm"><img src="./assets/cross.svg" alt="close"></button>
+  <div class= "clip center pa4 measure" id="elm-landing-pad"></div>
+  <button  class="blue-background bn white br-100 w3 h3 fr shadow-1-ns grow mr4 mt3 flex justify-center" id="show-elm"><img id='chat-button' src="./assets/speechBubble.svg" alt="open"><img class="clip" id='close-button' src="./assets/cross.svg" alt="close"></button>
+
   </div>
   </div>
 
   <script type="text/javascript">
     document.getElementById("show-elm").addEventListener('click', function() {
       document.getElementById("elm-landing-pad").classList.toggle("clip")
+        document.getElementById("close-button").classList.toggle("clip")
+      document.getElementById("chat-button").classList.toggle("clip")
+
     })
 
     Elm.Main.embed(document.getElementById("elm-landing-pad"))
