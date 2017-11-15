@@ -14,10 +14,18 @@
   background-color: #8F5B9C;
 }
 
+.blue-background{
+  background-color: #2396D2;
+}
+
 .br-50{
   border-radius: 50px;
 }
 
 .margin-0-auto{
   margin: 0 auto;
+}
+
+.w480{
+  width: 480px;
 }

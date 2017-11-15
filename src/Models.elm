@@ -73,7 +73,7 @@ botStyle =
 
 userStyle : String
 userStyle =
-    "bg-blue white fr br4 pr2 mw5 w5 mb3 pa3 w-100"
+    "blue-background white fr br4 pr2 mw5 w5 mb3 pa3 w-100"
 
 
 state_greeting =
