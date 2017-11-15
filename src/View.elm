@@ -20,27 +20,31 @@ view model =
                     |> List.map eachLine
                 )
             ]
-        , askInput model
+        , options model
         ]
 
 
-askInput : Model -> Html Msg
-askInput model =
+options : Model -> Html Msg
+options model =
     div [ class "" ]
-        [ Html.form
-            [ class
-                "clip"
-            , onWithOptions "submit" { stopPropagation = False, preventDefault = True } (Json.succeed SendText)
-            ]
-            [ fieldset [ class "" ]
-                [ div [ class "" ]
-                    [ label [ class "", for "user-input" ] []
-                    , input [ class "w-30", placeholder model.placeHolder, onInput ChangeInput, value model.input ] []
-                    , input [ class "ma2", type_ "submit", value "Ask away!" ] []
-                    ]
+        [ div [ class "br2 fl br4 ml3 pa2 mw5 w-auto flex justify-around" ] [ ul [ class "pa0" ] (model.options |> List.map eachOption) ]
+        ]
+
+
+textInput : Model -> Html Msg
+textInput model =
+    Html.form
+        [ class
+            ""
+        , onWithOptions "submit" { stopPropagation = False, preventDefault = True } (Json.succeed SendText)
+        ]
+        [ fieldset [ class "" ]
+            [ div [ class "" ]
+                [ label [ class "", for "user-input" ] []
+                , input [ class "w-30", placeholder model.placeHolder, onInput ChangeInput, value model.input ] []
+                , input [ class "ma2", type_ "submit", value "Ask away!" ] []
                 ]
             ]
-        , div [ class "bg-white br2 fl br4 ml3 pa2 mw5 w-auto flex justify-around" ] [ ul [ class "pa0" ] (model.options |> List.map eachOption) ]
         ]
 
 
