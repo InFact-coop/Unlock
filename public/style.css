@@ -1,0 +1,23 @@
+* {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.grey-font{
+  color: #4A4A4A;
+}
+
+.light-grey-background{
+  background-color: #F3EFEF;
+}
+
+.purple-background{
+  background-color: #8F5B9C;
+}
+
+.br-50{
+  border-radius: 50px;
+}
+
+.margin-0-auto{
+  margin: 0 auto;
+}

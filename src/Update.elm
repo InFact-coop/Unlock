@@ -27,7 +27,7 @@ update msg model =
             ( { model
                 | conversation = model.conversation ++ [ Line option.text option.sideClass ]
               }
-            , Delay.after 500 Time.millisecond (ChangeState option.newState)
+            , Delay.after 750 Time.millisecond (ChangeState option.newState)
             )
 
         ChangeState stateId ->
