@@ -17,7 +17,7 @@ update msg model =
 
         SendText ->
             ( { model
-                | conversation = model.conversation ++ [ Line model.input "tr" ]
+                | conversation = model.conversation ++ [ Line model.input userStyle ]
                 , input = ""
               }
             , Cmd.none
@@ -25,7 +25,8 @@ update msg model =
 
         SendOption option ->
             ( { model
-                | conversation = model.conversation ++ [ Line option.text option.sideClass ]
+                | conversation = model.conversation ++ [ Line option.text option.sideClass, Line "..." botStyle ]
+                , options = []
               }
             , Delay.after 750 Time.millisecond (ChangeState option.newState)
             )
@@ -39,10 +40,16 @@ update msg model =
 
                         Nothing ->
                             model.defState
+
+                newListLength =
+                    List.length model.conversation - 1
+
+                newConversations =
+                    List.take newListLength model.conversation ++ [ newState.response ]
             in
             ( { model
                 | input = ""
-                , conversation = model.conversation ++ [ newState.response ]
+                , conversation = newConversations
                 , options = newState.options
                 , currentStateNumber = newState.id
                 , previousStateNumber = model.currentStateNumber
