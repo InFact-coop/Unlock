@@ -6,15 +6,15 @@ type alias Model =
     , conversation : List Line
     , placeHolder : String
     , options : List Option
-    , currentStateNumber : Int
-    , previousStateNumber : Int
+    , currentStateNumber : String
+    , previousStateNumber : String
     , states : List State
     , defState : State
     }
 
 
 type alias State =
-    { id : Int
+    { id : String
     , response : Line
     , options : List Option
     }
@@ -22,7 +22,7 @@ type alias State =
 
 type alias Option =
     { text : String
-    , newState : Int
+    , newState : String
     , sideClass : String
     }
 
@@ -31,7 +31,7 @@ type Msg
     = ChangeInput String
     | SendText
     | SendOption Option
-    | ChangeState Int
+    | ChangeState String
 
 
 type alias Line =
@@ -46,11 +46,24 @@ model =
     , conversation = []
     , placeHolder = "Enter your questions here"
     , options = []
-    , currentStateNumber = 0
-    , previousStateNumber = -1
-    , states = [ state0, state1, state2, state3 ]
-    , defState = state0
+    , currentStateNumber = "greeting"
+    , previousStateNumber = "greeting"
+    , states = states
+    , defState = state_greeting
     }
+
+
+states =
+    [ state_greeting
+    , state_travelling_where
+    , state_not_travelling
+    , state_aus
+    , state_can
+    , state_other_travelling
+    , state_america
+    , state_america_live
+    , state_america_travel
+    ]
 
 
 botStyle : String
@@ -63,35 +76,75 @@ userStyle =
     "bg-blue white fr br4 pr2 mw5 w5 mb3 pa3 w-100"
 
 
-state0 =
+state_greeting =
     State
-        0
-        (Line "Hi! How are you?" botStyle)
-        [ { text = "Good", newState = 1, sideClass = userStyle }
-        , { text = "Not good", newState = 2, sideClass = userStyle }
+        "greeting"
+        (Line "Hi! Are you looking for advice on travelling abroad?" botStyle)
+        [ { text = "Yes!", newState = "travelling-where", sideClass = userStyle }
+        , { text = "No!", newState = "not-travelling", sideClass = userStyle }
         ]
 
 
-state1 =
+state_travelling_where =
     State
-        1
-        (Line "Good that you are good." botStyle)
-        [ { text = "How are you", newState = 3, sideClass = userStyle }
-        , { text = "Actually, I am not good", newState = 2, sideClass = userStyle }
+        "travelling-where"
+        (Line "Where are you travelling to?" botStyle)
+        [ { text = "America", newState = "america", sideClass = userStyle }
+        , { text = "Australia", newState = "australia", sideClass = userStyle }
+        , { text = "Canada", newState = "canada", sideClass = userStyle }
+        , { text = "Other", newState = "other", sideClass = userStyle }
         ]
 
 
-state2 =
+state_not_travelling =
     State
-        2
-        (Line "Bad that you are not good. Start again?" botStyle)
-        [ { text = "Yeah", newState = 0, sideClass = userStyle }
-        , { text = "No, how are you?", newState = 3, sideClass = userStyle }
+        "not-travelling"
+        (Line "OK! I'm afraid I can't be much help with that! Try having a look at our website for more information (hub.unlock.org.uk)" botStyle)
+        []
+
+
+state_aus =
+    State
+        "australia"
+        (Line "Great, you can find more information about travelling to Australia here:" botStyle)
+        []
+
+
+state_can =
+    State
+        "canada"
+        (Line "Great, you can find more information about travelling to Canada here:" botStyle)
+        []
+
+
+state_other_travelling =
+    State
+        "other"
+        (Line "OK! Find out more information about travelling abroad here:" botStyle)
+        []
+
+
+state_america =
+    State
+        "america"
+        (Line "Are you travelling to live, work or just visit" botStyle)
+        [ { text = "Live/Work", newState = "america-live", sideClass = userStyle }
+        , { text = "Just Visit!", newState = "america-travel", sideClass = userStyle }
         ]
 
 
-state3 =
+state_america_live =
     State
-        3
-        (Line "I'm great thanks!" botStyle)
-        [ { text = "Cool. Lets start again", newState = 0, sideClass = userStyle } ]
+        "america-live"
+        (Line "Cool! You can find more information about that here:" botStyle)
+        []
+
+
+state_america_travel =
+    State
+        "america-travel"
+        (Line "OK, great! Have you ever been arrested or convicted for a crime that resulted in serious damage to property or serious harm to another person or government authority?" botStyle)
+        [ { text = "Yes", newState = "greeting", sideClass = userStyle }
+        , { text = "No", newState = "greeting", sideClass = userStyle }
+        , { text = "Can you give me some examples?", newState = "greeting", sideClass = userStyle }
+        ]
