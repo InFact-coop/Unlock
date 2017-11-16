@@ -33,3 +33,7 @@
 .unlock-image{
   background-image: url('./assets/infoHub.png');
 }
+
+.w416 {
+  min-width: 416px;
+}
