@@ -1,38 +1,39 @@
 * {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-.grey-font{
-  color: #4A4A4A;
+.grey-font {
+  color: #4a4a4a;
 }
 
-.light-grey-background{
-  background-color: #F3EFEF;
+.light-grey-background {
+  background-color: #f3efef;
 }
 
-.purple-background{
-  background-color: #8F5B9C;
+.purple-background {
+  background-color: #8f5b9c;
 }
 
-.blue-background{
-  background-color: #2396D2;
+.blue-background {
+  background-color: #2396d2;
 }
 
-.br-50{
+.br-50 {
   border-radius: 50px;
 }
 
-.margin-0-auto{
+.margin-0-auto {
   margin: 0 auto;
 }
 
-.w480{
+.w480 {
   width: 480px;
 }
 
-.unlock-image{
+.unlock-image {
   background-image: url('./assets/infoHub.png');
 }
+
 
 .h-60{
   height: 60%;
@@ -40,4 +41,11 @@
 
 .h-10{
   height: 9rem;
+
+.w416 {
+  min-width: 416px;
+}
+
+.wrap {
+  word-wrap: break-word;
 }
