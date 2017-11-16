@@ -33,3 +33,11 @@
 .unlock-image{
   background-image: url('./assets/infoHub.png');
 }
+
+.h-60{
+  height: 60%;
+}
+
+.h-10{
+  height: 9rem;
+}
