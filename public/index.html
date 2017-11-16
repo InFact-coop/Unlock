@@ -15,19 +15,71 @@
 <body class="unlock-image cover">
   <div class="fixed bottom-0 right-0 ma4">
   <div class="w480 margin-0-auto">
+
+<!-- code to the intro page!! -->
+<div id="intro-page" class="pa4 clip">
+    <div class = "br3 bg-white vh-50 shadow-1-ns overflow-auto-ns">
+      <div class="h-60 mb2 tc blue-background bg-white pa3  grey-font b f4">
+      <p class="white ma0 fw1"> Unlock Support Center</p>
+      <div class="ba b--white-30 mt2"></div>
+      <img class="ma2 fw1 white f5 br-100 h3 w3 dib" src="./assets/woman.jpg" alt="Image of Unlock assistant">
+      <p class="ma0 fw1 white f5"> Sarah </p>
+      <p class="ma0 fw1 white f7 tracked i pa2 ml4 mr4"> “ Hi I’m Sarah! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”</p>
+      <div class="ba b--white-30 mt2"></div>
+      <p class="ma0 fw1 white f5 mt2"> How can I help? </p>
+     </div>
+      <div>
+          <div class="flex flex-wrap justify-around">
+            <button id="show-elm" class="purple-background bn white fw1 br-50 pa2 pl3 pr3 ma2"> Travel </button>
+            <button class="purple-background bn white fw1 br-50 pa2 pl3 pr3 ma2"> Disclosure </button>
+            <button class="purple-background bn white fw1 br-50 pa2 pl3 pr3 ma2"> Insurance </button>
+            <button class="purple-background bn white fw1 br-50 pa2 pl3 pr3 ma2"> Sexual Offences </button>
+            <button class="purple-background bn white fw1 br-50 pa2 pl3 pr3 ma2"> Spent or Unspent? </button>
+            <button class="purple-background bn white fw1 br-50 pa2 pl3 pr3 ma2"> Goofle Effect </button>
+            <button class="purple-background bn white fw1 br-50 pa2 pl3 pr3 ma2"> Criminal Record Check </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    </div>
+
+<!-- Code to intro page ends -->
+
   <div class= "clip center pa4 measure" id="elm-landing-pad"></div>
-  <button  class="blue-background bn white br-100 w3 h3 fr shadow-1-ns grow mr4 mt3 flex justify-center" id="show-elm"><img id='chat-button' src="./assets/speechBubble.svg" alt="open"><img class="clip" id='close-button' src="./assets/cross.svg" alt="close"></button>
+  <button  class="blue-background bn white br-100 w3 h3 fr shadow-1-ns grow mr4 mt3 flex justify-center" id="show-welcome"><img src="./assets/speechBubble.svg" alt="open"></button>
+
+  <button  class="blue-background bn white br-100 w3 h3 fr shadow-1-ns grow mr4 mt3 flex justify-center clip" id="hide-all"><img src="./assets/cross.svg" alt="close"></button>
+
 
   </div>
   </div>
 
   <script type="text/javascript">
-    document.getElementById("show-elm").addEventListener('click', function() {
-      document.getElementById("elm-landing-pad").classList.toggle("clip")
-        document.getElementById("close-button").classList.toggle("clip")
-      document.getElementById("chat-button").classList.toggle("clip")
 
-    })
+document.getElementById("show-welcome").addEventListener('click', function() {
+  // remove:
+  document.getElementById("intro-page").classList.toggle("clip")
+  document.getElementById("hide-all").classList.toggle("clip")
+  // add:
+  document.getElementById("show-welcome").classList.toggle("clip")
+})
+
+document.getElementById("show-elm").addEventListener('click', function() {
+  // remove:
+  document.getElementById("elm-landing-pad").classList.toggle("clip")
+  // add:
+  document.getElementById("intro-page").classList.toggle("clip")
+})
+
+document.getElementById("hide-all").addEventListener('click', function() {
+  document.getElementById("intro-page").classList.add("clip")
+  document.getElementById("elm-landing-pad").classList.add("clip")
+  document.getElementById("hide-all").classList.add("clip")
+  document.getElementById("show-welcome").classList.remove("clip")
+})
 
     Elm.Main.embed(document.getElementById("elm-landing-pad"))
 </script>
