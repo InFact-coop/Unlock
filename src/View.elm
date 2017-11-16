@@ -32,6 +32,38 @@ options model =
         ]
 
 
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Sub.none
+
+
+eachLine : Line -> Html Msg
+eachLine line =
+    div [ class "" ]
+        [ div [ class "" ]
+            [ li [ class ("" ++ line.sideClass) ] [ text line.text ]
+            ]
+        , if List.length line.links > 0 then
+            div [ class ("wrap mt2 " ++ line.sideClass) ]
+                (line.links
+                    |> List.map linksList
+                )
+          else
+            div [] []
+        ]
+
+
+eachOption : Option -> Html Msg
+eachOption option =
+    div [ class "inline-flex flex-wrap" ]
+        [ button [ class "purple-background white bn br-50 pa3 ma1 fw1", onClick (SendOption option) ] [ text option.line.text ] ]
+
+
+linksList : String -> Html Msg
+linksList link =
+    a [ class "", href link, target "_blank" ] [ text link ]
+
+
 textInput : Model -> Html Msg
 textInput model =
     Html.form
@@ -47,23 +79,3 @@ textInput model =
                 ]
             ]
         ]
-
-
-subscriptions : Model -> Sub Msg
-subscriptions model =
-    Sub.none
-
-
-eachLine : { text : String, sideClass : String } -> Html Msg
-eachLine line =
-    div [ class "" ]
-        [ div [ class "" ]
-            [ li [ class ("" ++ line.sideClass) ] [ text line.text ]
-            ]
-        ]
-
-
-eachOption : Option -> Html Msg
-eachOption option =
-    div [ class "inline-flex flex-wrap" ]
-        [ button [ class "purple-background white bn br-50 pa3 ma1 fw1", onClick (SendOption option) ] [ text option.text ] ]
