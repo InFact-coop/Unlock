@@ -44,7 +44,7 @@ eachLine line =
             [ li [ class ("" ++ line.sideClass) ] [ text line.text ]
             ]
         , if List.length line.links > 0 then
-            div [ class line.sideClass ]
+            div [ class ("wrap mt2 " ++ line.sideClass) ]
                 (line.links
                     |> List.map linksList
                 )
