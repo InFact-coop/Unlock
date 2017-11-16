@@ -34,12 +34,11 @@
   background-image: url('./assets/infoHub.png');
 }
 
-
-.h-60{
+.h-60 {
   height: 60%;
 }
 
-.h-10{
+.h-10 {
   height: 9rem;
 }
 
@@ -49,4 +48,20 @@
 
 .wrap {
   word-wrap: break-word;
+}
+
+@-webkit-keyframes thinking {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.thinking {
+  -webkit-animation: thinking 1s infinite;
 }

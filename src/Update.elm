@@ -34,10 +34,13 @@ update msg model =
 
         AddThinking option ->
             ( { model
-                | conversation = model.conversation ++ [ Line "..." botStyle [] ]
+                | conversation = model.conversation ++ [ Line "..." (botStyle ++ " thinking") [] ]
                 , options = []
               }
-            , Delay.after 500 Time.millisecond (ChangeState option.newState)
+            , Cmd.batch
+                [ Task.attempt (always NoOp) (toBottom "chat")
+                , Delay.after 1000 Time.millisecond (ChangeState option.newState)
+                ]
             )
 
         ChangeState stateId ->
