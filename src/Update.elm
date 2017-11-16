@@ -17,7 +17,7 @@ update msg model =
 
         SendText ->
             ( { model
-                | conversation = model.conversation ++ [ Line model.input userStyle ]
+                | conversation = model.conversation ++ [ Line model.input userStyle [] ]
                 , input = ""
               }
             , Cmd.none
@@ -25,7 +25,7 @@ update msg model =
 
         SendOption option ->
             ( { model
-                | conversation = model.conversation ++ [ Line option.text option.sideClass, Line "..." botStyle ]
+                | conversation = model.conversation ++ [ option.line, Line "..." botStyle [] ]
                 , options = []
               }
             , Delay.after 750 Time.millisecond (ChangeState option.newState)
