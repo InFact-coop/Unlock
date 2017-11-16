@@ -31,6 +31,8 @@ type Msg
     | SendText
     | SendOption Option
     | ChangeState String
+    | NoOp
+    | AddThinking Option
 
 
 type alias Line =

@@ -12,7 +12,7 @@ import Models exposing (..)
 
 view : Model -> Html Msg
 view model =
-    div [ class "br3 light-grey-background vh-50 shadow-1-ns overflow-auto-ns" ]
+    div [ class "br3 light-grey-background vh-50 shadow-1-ns overflow-auto-ns", id "chat" ]
         [ div [ class "fixed w416 tc gray bg-white pa3 br3 br--top-m grey-font b f4" ] [ text "Unlock Chat" ]
         , div [ class "mt5 mb2" ] []
         , div []
