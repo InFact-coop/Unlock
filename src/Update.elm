@@ -4,6 +4,7 @@
 module Update exposing (..)
 
 import Delay
+import Dom.Scroll exposing (toBottom)
 import Models exposing (..)
 import Task
 import Time
@@ -25,10 +26,21 @@ update msg model =
 
         SendOption option ->
             ( { model
-                | conversation = model.conversation ++ [ option.line, Line "..." botStyle [] ]
+                | conversation = model.conversation ++ [ option.line ]
                 , options = []
               }
-            , Delay.after 750 Time.millisecond (ChangeState option.newState)
+            , Task.perform AddThinking (Task.succeed option)
+            )
+
+        AddThinking option ->
+            ( { model
+                | conversation = model.conversation ++ [ Line "..." (botStyle ++ " thinking") [] ]
+                , options = []
+              }
+            , Cmd.batch
+                [ Task.attempt (always NoOp) (toBottom "chat")
+                , Delay.after 1000 Time.millisecond (ChangeState option.newState)
+                ]
             )
 
         ChangeState stateId ->
@@ -54,8 +66,11 @@ update msg model =
                 , currentStateNumber = newState.id
                 , previousStateNumber = model.currentStateNumber
               }
-            , Cmd.none
+            , Task.attempt (always NoOp) (toBottom "chat")
             )
+
+        NoOp ->
+            model ! []
 
 
 stateToChangeTo : String -> Model -> Maybe State

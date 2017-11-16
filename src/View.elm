@@ -12,7 +12,7 @@ import Models exposing (..)
 
 view : Model -> Html Msg
 view model =
-    div [ class "br3 light-grey-background vh-50 shadow-1-ns overflow-auto-ns" ]
+    div [ class "br3 light-grey-background vh-50 shadow-1-ns overflow-auto-ns", id "chat" ]
         [ div [ class "fixed w416 tc gray bg-white pa3 br3 br--top-m grey-font b f4" ] [ text "Unlock Chat" ]
         , div [ class "mt5 mb2" ] []
         , div []
@@ -32,9 +32,10 @@ options model =
         ]
 
 
-subscriptions : Model -> Sub Msg
-subscriptions model =
-    Sub.none
+eachOption : Option -> Html Msg
+eachOption option =
+    div [ class "inline-flex flex-wrap" ]
+        [ button [ class "purple-background white bn br-50 pa3 ma1 fw1", onClick (SendOption option) ] [ text option.line.text ] ]
 
 
 eachLine : Line -> Html Msg
@@ -51,12 +52,6 @@ eachLine line =
           else
             div [] []
         ]
-
-
-eachOption : Option -> Html Msg
-eachOption option =
-    div [ class "inline-flex flex-wrap" ]
-        [ button [ class "purple-background white bn br-50 pa3 ma1 fw1", onClick (SendOption option) ] [ text option.line.text ] ]
 
 
 linksList : String -> Html Msg
@@ -79,3 +74,8 @@ textInput model =
                 ]
             ]
         ]
+
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Sub.none
