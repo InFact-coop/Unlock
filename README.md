@@ -11,7 +11,7 @@ In our Design Workshop, we spent a few hours trying to figure out what was the m
 
 We then considered possible solutions for each of the problems and came up with quick storyboards which we voted on. After some deliberation it was decided that the key problem we wanted to solve was:
 
-**How do we reduce pressure on the helpline by helping users see for themseleves whether they are able to travel to the USA**
+**How do we lower calls related to travel abroad to help reduce pressure on the helpline**
 
 
 ## Our Solution?
