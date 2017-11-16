@@ -34,7 +34,7 @@ options model =
 
 eachOption : Option -> Html Msg
 eachOption option =
-    div [ class "inline-flex flex-wrap" ]
+    div [ class "grow grow_bot_speech inline-flex flex-wrap" ]
         [ button [ class "purple-background white bn br-50 pa3 ma1 fw1", onClick (SendOption option) ] [ text option.line.text ] ]
 
 
@@ -56,7 +56,7 @@ eachLine line =
 
 linksList : String -> Html Msg
 linksList link =
-    a [ class "", href link, target "_blank" ] [ text link ]
+    a [ class "grow_bot_speech", href link, target "_blank" ] [ text link ]
 
 
 textInput : Model -> Html Msg
