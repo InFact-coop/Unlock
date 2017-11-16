@@ -3,9 +3,9 @@ See our site __[here!!](http://unlock-chat.surge.sh/)__ :eyes:
 
 ## The Problem
 
-Unlock have a real problem with their call centre being overloaded with calls relating to questions that can be answered through their online _*"information hub"*_. The needed to find a way to reduce the number of calls related to simple questions to free up the time of the volunteers to focus on more challenging discussions. 
+Unlock have a real problem with their helpline being overloaded with calls relating to questions that can be answered through their online _*"information hub"*_. They needed to find a way to reduce the number of calls related to simple questions to free up the time of the volunteers and focus on more challenging discussions. 
 
-In our Design Workshop, we spent a few hours trying to figure out what was the main problem was that could help reduce the number of calls coming through to the volunteers. With two of the main discussions being around travel to the U.S and helping to create disclosure letters to future employers.
+In our Design Workshop we spent a few hours trying to figure out what the main problem was that could help reduce the number of calls coming through to the volunteers. With two of the main discussions being around travel to the U.S and helping to create disclosure letters to future employers.
 
 ![design day](https://files.gitter.im/Jen-Harris/ZSCs/thumb/image.png)   ![Design day 2](https://files.gitter.im/Jen-Harris/6A3t/thumb/image.png)
 
@@ -16,7 +16,7 @@ We then considered possible solutions for each of the problems and came up with 
 
 ## Our Solution?
 
-Create an chat bot that users can click on and interactive with to answer their common questions related to travel to the U.S. 
+Create a chat bot that users can click on and interactive with to answer their common questions related to travel to the U.S. 
 
 This additional feature to the current Unlock info hub will enable users to easily discover whether they are elibgible to travel to the U.S. on an ESTA or a Visa. It also provides them with examples of conviction as well as alternative options on how to travel.
 
@@ -69,9 +69,9 @@ As such we developed a flow chart to direct our thinking to how a converstation 
 ### How it works
 
 1. User comes to the hub
-2. User clicks on the chat icon in the lower left hand corner
+2. User clicks on the chat icon in the lower right hand corner
 3. User is greeted by "Lucy" who shares her story and allows user to select what they would like information on 
-4. User is taken to chat and greeted 
+4. User is taken to chat screen and greeted 
 5. User follows a series of questions to determine their eligibility for travel to the U.S
 6. Whenever user flow ends they are provided with links to further information  
 
@@ -95,9 +95,9 @@ Recommended areas to user test:
 
 
 ### Next Sprint
-If this design is move forward for a build sprint it is important to concentrate on key features that both solves the initital problem and takes implements feedback from user testing.
+If this design is to move forward for a build sprint it is important to concentrate on key features that both solves the initital problem and takes implements feedback from user testing.
 
-Recommended first features:
+Recommended first features from developers point of view:
 - [ ] Add flows for other destinations 
 - [ ] Add flows for disclosure form or other common helpline queries
 - [ ] Improve responsiveness 
