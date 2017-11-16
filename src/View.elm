@@ -27,7 +27,7 @@ view model =
 
 options : Model -> Html Msg
 options model =
-    div [ class "" ]
+    div [ class "w5" ]
         [ div [ class "br2 fl mw5 ml3 w-auto flex justify-around" ] [ ul [ class "pa0" ] (model.options |> List.map eachOption) ]
         ]
 

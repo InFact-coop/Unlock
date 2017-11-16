@@ -65,6 +65,7 @@ states =
     , state_america
     , state_america_live
     , state_america_travel
+    , state_america_travel2
     , state_prop_examples
     , state_drug
     , state_terror
@@ -97,8 +98,8 @@ state_greeting =
             botStyle
             []
         )
-        [ { line = { text = "Yes!", sideClass = userStyle, links = [] }, newState = "travelling-where" }
-        , { line = { text = "No!", sideClass = userStyle, links = [] }, newState = "not-travelling" }
+        [ { line = { text = "Yes", sideClass = userStyle, links = [] }, newState = "travelling-where" }
+        , { line = { text = "No", sideClass = userStyle, links = [] }, newState = "not-travelling" }
         ]
 
 
@@ -149,7 +150,7 @@ state_america =
         "america"
         (Line "Are you travelling to live, work or just visit" botStyle [])
         [ { line = Line "Live/Work" userStyle [], newState = "america-live" }
-        , { line = Line "Just Visit!" userStyle [], newState = "america-travel" }
+        , { line = Line "Just Visit" userStyle [], newState = "america-travel" }
         ]
 
 
@@ -173,12 +174,21 @@ state_america_travel =
         ]
 
 
+state_america_travel2 =
+    State
+        "america-travel-2"
+        (Line "No problem. So, have you ever been arrested or convicted for a crime that resulted in serious damage to property or serious harm to another person or government authority?" botStyle [])
+        [ { line = Line "Yes" userStyle [], newState = "visa" }
+        , { line = Line "No" userStyle [], newState = "drug-crimes" }
+        , { line = Line "Sorry, can I see the examples again?" userStyle [], newState = "prop-examples" }
+        ]
+
+
 state_prop_examples =
     State
         "prop-examples"
         (Line "Some examples are: \n Blackmail Burglary Arson Counterfieting, Tax Evasion Adultery Gross Indecency and Mayhem \n A comprehensive list can be found here:" botStyle [ "https://hub.unlock.org.uk/wp-content/uploads/Annex-A-Crimes-involving-moral-turpitude.pdf" ])
-        [ { line = Line "Yes" userStyle [], newState = "visa" }
-        , { line = Line "No" userStyle [], newState = "drug-crimes" }
+        [ { line = Line "Thanks" userStyle [], newState = "america-travel-2" }
         ]
 
 
@@ -194,7 +204,7 @@ state_drug =
 state_terror =
     State
         "terrorist-crimes"
-        (Line "Do you seek to engage in or have you ever engaged in terrorist activitiess espionage, sabotage or genocide?" botStyle [])
+        (Line "Do you seek to engage in or have you ever engaged in terrorist activities, espionage, sabotage or genocide?" botStyle [])
         [ { line = Line "Yes" userStyle [], newState = "visa" }
         , { line = Line "No" userStyle [], newState = "fraud-crimes" }
         ]
@@ -257,5 +267,5 @@ state_lying =
 state_thanks =
     State
         "thanks"
-        (Line "No problem! Thanks for chatting with me, I hope I've helped. If not, I'm very sorry, if you still require more information on travel, have a look here: " botStyle [ "https://hub.unlock.org.uk/information/travelling-abroad" ])
+        (Line "No problem! Thanks for chatting with me. If you still require more information on travelling with a conviction, have a look here: " botStyle [ "https://hub.unlock.org.uk/information/travelling-abroad" ])
         []
