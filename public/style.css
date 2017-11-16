@@ -89,3 +89,16 @@
 .grow_user_speech {
   -webkit-animation: growUser 0.4s;
 }
+
+.ball {
+  -webkit-animation: bounce 0.3s infinite alternate;
+}
+
+@-webkit-keyframes bounce {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-30px);
+  }
+}

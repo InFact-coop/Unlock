@@ -49,7 +49,7 @@
 <!-- Code to intro page ends -->
 
   <div class= "clip center pa4 measure" id="elm-landing-pad"></div>
-  <button  class="blue-background bn white br-100 w3 h3 fr shadow-1-ns grow mr4 mt3 flex justify-center" id="show-welcome"><img src="./assets/speechBubble.svg" alt="open"></button>
+  <button  class="ball blue-background bn white br-100 w3 h3 fr shadow-1-ns grow mr4 mt3 flex justify-center" id="show-welcome"><img src="./assets/speechBubble.svg" alt="open"></button>
 
   <button  class="blue-background bn white br-100 w3 h3 fr shadow-1-ns grow mr4 mt3 flex justify-center clip" id="hide-all"><img src="./assets/cross.svg" alt="close"></button>
 
@@ -65,6 +65,7 @@ document.getElementById("show-welcome").addEventListener('click', function() {
   document.getElementById("hide-all").classList.toggle("clip")
   // add:
   document.getElementById("show-welcome").classList.toggle("clip")
+  document.getElementById("show-welcome").classList.toggle("ball")
 })
 
 document.getElementById("show-elm").addEventListener('click', function() {
