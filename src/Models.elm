@@ -82,12 +82,12 @@ states =
 
 botStyle : String
 botStyle =
-    "bg-white fl br4 pr2 mw5 w5 pa3"
+    "grow_bot_speech bg-white fl br4 pr2 mw5 w5 pa3"
 
 
 userStyle : String
 userStyle =
-    "blue-background white fr br4 pr2 mw5 w5 mb3 pa3 w-100 mt3"
+    "grow_user_speech blue-background white fr br4 pr2 mw5 w5 mb3 pa3 w-100 mt3"
 
 
 state_greeting =

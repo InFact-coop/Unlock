@@ -2,6 +2,10 @@
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .grey-font {
   color: #4a4a4a;
 }
@@ -51,19 +55,56 @@
 }
 
 @-webkit-keyframes thinking {
-  0% {
-    opacity: 0;
-  }
   50% {
-    opacity: 1;
+    color: white;
+  }
+}
+
+@-webkit-keyframes growBot {
+  0% {
+    transform: scale(0, 0);
+    /*translate(-16rem);*/
   }
   100% {
-    opacity: 0;
+    transform: scale(1, 1);
+    /*translate(0rem);*/
+  }
+}
+
+@-webkit-keyframes growUser {
+  0% {
+    transform: scale(0, 0);
+    /*translate(16rem);*/
+  }
+  100% {
+    transform: scale(1, 1);
+    /*translate(0rem);*/
   }
 }
 
 .thinking {
-  -webkit-animation: thinking 1s infinite;
+  -webkit-animation: thinking 0.8s infinite;
+}
+
+.grow_bot_speech {
+  -webkit-animation: growBot 0.4s;
+}
+
+.grow_user_speech {
+  -webkit-animation: growUser 0.4s;
+}
+
+.ball {
+  -webkit-animation: bounce 0.3s infinite alternate;
+}
+
+@-webkit-keyframes bounce {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-30px);
+  }
 }
 
 .min-height{

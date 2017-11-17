@@ -29,17 +29,17 @@ update msg model =
                 | conversation = model.conversation ++ [ option.line ]
                 , options = []
               }
-            , Task.perform AddThinking (Task.succeed option)
+            , Delay.after 450 Time.millisecond (AddThinking option)
             )
 
         AddThinking option ->
             ( { model
-                | conversation = model.conversation ++ [ Line "..." (botStyle ++ " thinking") [] ]
+                | conversation = model.conversation ++ [ Line "..." "bg-white fl br4 pr2 mw5 w5 pa3 thinking b f3" [] ]
                 , options = []
               }
             , Cmd.batch
                 [ Task.attempt (always NoOp) (toBottom "chat")
-                , Delay.after 1000 Time.millisecond (ChangeState option.newState)
+                , Delay.after 1500 Time.millisecond (ChangeState option.newState)
                 ]
             )
 
