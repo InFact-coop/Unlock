@@ -75,6 +75,13 @@ As such we developed a flow chart to direct our thinking to how a converstation 
 5. User follows a series of questions to determine their eligibility for travel to the U.S
 6. Whenever user flow ends they are provided with links to further information  
 
+### Final Product 
+See our final product [here!](http://unlock-chat.surge.sh/):eyes:
+  
+  Or see the flow below: 
+  ![gif of flow](https://files.gitter.im/Jen-Harris/16yl/UnlockFinalProduct2.gif)
+
+
 
 ## Further Development
 ### User Testing
