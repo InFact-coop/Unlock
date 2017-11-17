@@ -3,7 +3,7 @@ See our site __[here!!](http://unlock-chat.surge.sh/)__ :eyes:
 
 ## The Problem
 
-Unlock have a real problem with their helpline being overloaded with calls relating to questions that can be answered through their online _*"information hub"*_. They needed to find a way to reduce the number of calls related to simple questions to free up the time of the volunteers and focus on more challenging discussions. 
+Unlock have a real problem with their helpline has seen an increase in calls relating to questions that can be answered through their online _*"information hub"*_. They needed to find a way to reduce the number of calls related to simple questions to free up the time of the volunteers and focus on more challenging discussions. 
 
 In our Design Workshop we spent a few hours trying to figure out what the main problem was that could help reduce the number of calls coming through to the volunteers. With two of the main discussions being around travel to the U.S and helping to create disclosure letters to future employers.
 
