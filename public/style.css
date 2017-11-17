@@ -65,3 +65,7 @@
 .thinking {
   -webkit-animation: thinking 1s infinite;
 }
+
+.min-height{
+  min-height: 443.5px;
+}
