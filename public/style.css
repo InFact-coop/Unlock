@@ -62,19 +62,23 @@
 
 @-webkit-keyframes growBot {
   0% {
-    transform: scale(0, 0) translate(-16rem);
+    transform: scale(0, 0);
+    /*translate(-16rem);*/
   }
   100% {
-    transform: scale(1, 1) translate(0rem);
+    transform: scale(1, 1);
+    /*translate(0rem);*/
   }
 }
 
 @-webkit-keyframes growUser {
   0% {
-    transform: scale(0, 0) translate(16rem);
+    transform: scale(0, 0);
+    /*translate(16rem);*/
   }
   100% {
-    transform: scale(1, 1) translate(0rem);
+    transform: scale(1, 1);
+    /*translate(0rem);*/
   }
 }
 
